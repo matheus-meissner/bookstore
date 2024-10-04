@@ -12,7 +12,7 @@ services:
       - db
     restart: always  # Adicione essa linha
     networks:
-      - backend
+      - backend #Commit
 
   db:
     image: postgres:13.0-alpine
