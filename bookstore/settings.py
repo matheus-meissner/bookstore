@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bookstore_db',  # Nome do banco de dados
-        'USER': 'dev',  # Usuário configurado no Docker
-        'PASSWORD': 'dev',  # Senha configurada no Docker
-        'HOST': 'db',  # Nome do serviço no docker-compose (db)
-        'PORT': '5432',  # Porta padrão do PostgreSQL
+        'NAME': os.getenv('DB_NAME', 'bookstore_db'),
+        'USER': os.getenv('DB_USER', 'dev'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'dev'),
+        'HOST': os.getenv('DB_HOST', 'db'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 
