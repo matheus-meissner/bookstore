@@ -80,8 +80,9 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME', 'bookstore_db'),
         'USER': os.getenv('DB_USER', 'dev'),
         'PASSWORD': os.getenv('DB_PASSWORD', 'dev'),
-        'HOST': os.getenv('DB_HOST', 'db'),
-        'PORT': os.getenv('DB_PORT', '5432'),
+        # Verifica se está rodando no GitHub Actions
+        'HOST': 'localhost' if os.getenv('GITHUB_ACTIONS') else 'db',
+        'PORT': '5432',
     }
 }
 
